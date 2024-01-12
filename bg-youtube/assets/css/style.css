@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import "https://unpkg.com/ress/dist/ress.min.css";
+
+/*===== 背景動画設定のCSS =====*/
+
+/* header設定 */
+#header {
+  /* ローディング画像などを表示す際の基点とするため指定 */
+  position: relative;
+  /* 高さを全画面にあわせる */
+  height: 100vh;
+  text-align: center;
+  color: #fff;
+  /* ローディング画面時＆動画が表示されないときに表示する背景画像のレスポンシブ化 */
+  background: url("../img/movie.png") no-repeat;
+  background-size: cover;
+}
+
+/*  ローディングアイコン設定  */
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+/* jQueryで付与されたdisappearクラスがついたらロゴエリアを非表示 */
+#loading.disappear {
+  display: none;
+}
+
+/*  youtube設定  */
+#youtube-area {
+  position: fixed;
+  z-index: 1;
+  /* 最背面に設定 */
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* jQueryで付与されたappearクラスがついたらYoutubeエリアをふわっと表示 */
+#youtube-area.appear {
+  animation-name: PageAnimeAppear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes PageAnimeAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#youtube {
+  /* 天地中央配置 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 縦横幅指定 */
+  /*  16:9 の幅 → 16 ÷ 9＝ 177.77%  */
+  width: 177.77777778vh;
+  /*  16:9の幅 → 9 ÷ 16 = 56.25%  */
+  height: 56.25vw;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/* youtubeがクリックされないためのマスク */
+#youtube-mask {
+  position: absolute;
+  /* 下から2番目に表示 */
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* youtube 上のロゴ  */
+h1 {
+  position: absolute;
+  /* 下から2番目に表示 */
+  z-index: 2;
+  /* 天地中央配置 */
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  /* 色指定 */
+  color: #fff;
+  text-shadow: 0 0 15px #666;
+}
+
+/* 下のコンテンツ */
+#container {
+  /* relativeを指定してfixed指定をした#youtube-areaの上に表示 */
+  position: relative;
+  /* 一番上に表示 */
+  z-index: 3;
+  /* 見た目の調整 */
+  background: #333;
+  color: #fff;
+  padding: 300px 0;
+  text-align: center;
+}

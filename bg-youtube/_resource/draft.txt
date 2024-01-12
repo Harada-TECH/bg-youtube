@@ -1,0 +1,11 @@
+----------【HTML】----------
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+6-3-2 YouTubeを使って、画面全体に背景動画を流す
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="assets/js/script.js"></script>
+
+
+----------【CSS】----------
+@import "https://unpkg.com/ress/dist/ress.min.css";
